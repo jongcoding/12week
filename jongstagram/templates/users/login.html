@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="login">
+    <form method="POST">
+        <h1>MJSEC</h1>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-login" disabled>로그인</button>
+<!-- MJSEC 여러분 여기까지 오느라 고생많았습니다. 현재 공사 중이오니 회원가입 페이지를 직접 들어가세요~  
+        <a href="{% url 'users:signup' %}">회원가입 페이지로 이동</a>
+-->
+    </form>
+</div>
+ {% if messages %}
+        <script>
+            {% for message in messages %}
+                alert('{{ message }}');
+            {% endfor %}
+        </script>
+    {% endif %}
+{% endblock %}}
